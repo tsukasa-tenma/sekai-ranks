@@ -135,7 +135,6 @@ function initClicks() {
 }
 
 async function setDisplay(displayType, displayId) {
-    console.log(displayType, displayId);
     $("#character").removeClass("characterIn");
     await sleep(10);
     $("#character").addClass("characterIn");
@@ -173,7 +172,6 @@ async function setDisplay(displayType, displayId) {
 }
 
 function setLeaderboard(minId, maxId) {
-    console.log(minId, maxId);
     $("#table").empty();
     let divs = [];
     let nameDivs = [];
@@ -188,14 +186,12 @@ function setLeaderboard(minId, maxId) {
     let maxRank = 0;
     for (let i = 0; i < data.length; i++) {
         let user = data[i];
-        console.log(user);
         let minRank = 1000;
         for (let j = minId-1; j <= maxId-1; j++) {
             if (user.cr[j] < minRank) {
                 minRank = user.cr[j];
             }
         }
-        console.log(minRank);
         if (minRank > maxRank) {
             maxRank = minRank;
         }
