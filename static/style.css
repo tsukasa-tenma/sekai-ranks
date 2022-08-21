@@ -16,6 +16,11 @@ body {
     padding: 0;
     animation: bgSlide 10s infinite linear normal forwards;
     user-select: none;
+    overflow: hidden;
+}
+
+#data {
+    display: none;
 }
 
 @keyframes bgSlide {
@@ -43,6 +48,7 @@ body {
     height: 100%;
     display: flex;
     flex-flow: column;
+    overflow: hidden;
 }
 
 #header {
@@ -111,6 +117,7 @@ body {
     display: flex;
     flex-flow: row;
     flex: 1;
+    overflow: hidden;
 }
 
 #character {
@@ -165,4 +172,49 @@ body {
     100% {
         transform: translateX(0%);
     }
+}
+
+#table {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    overflow-y: scroll;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.row {
+    background-color: white;
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 4px;
+    border-radius: 20px;
+}
+
+.crNumber {
+    font-family: "SekaiBold";
+    font-size: 48px;
+    line-height: 60px;
+    width: 100px;
+    background-color: #5CC9BB;
+    color: white;
+    padding: 5px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-align: center;
+}
+
+.crNames {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.crNames span {
+    font-family: "Sekai";
+    font-size: 16px;
+    line-height: 20px;
 }

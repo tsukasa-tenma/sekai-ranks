@@ -1,3 +1,5 @@
+var data;
+
 let characterData = [{
     "jp": "星乃 一歌",
     "en": "Hoshino Ichika"
@@ -74,10 +76,13 @@ let characterData = [{
     "jp": "MEIKO"
 }, {
     "jp": "KAITO"
-}]
+}];
+
+const MAX_RANK = 65;
 
 $(function () {
     makeHeader();
+    loadData();
     initClicks();
     setDisplay("char", 21);
 });
@@ -109,6 +114,10 @@ function makeUnitDiv(id) {
         unitDiv.append(charButton);
     }
     return unitDiv;
+}
+
+function loadData() {
+    data = JSON.parse($("#data").text());
 }
 
 function initClicks() {
@@ -151,8 +160,7 @@ async function setDisplay(displayType, displayId) {
             $("#characterImage").css("width", "75%");
             if (displayId < 6) {
                 setLeaderboard(4 * (displayId - 1) + 1, 4 * (displayId - 1) + 4);
-            }
-            else if (displayId == 6) {
+            } else if (displayId == 6) {
                 setLeaderboard(21, 26);
             }
         } else if (displayType == "dd") {
@@ -166,6 +174,38 @@ async function setDisplay(displayType, displayId) {
 
 function setLeaderboard(minId, maxId) {
     console.log(minId, maxId);
+    $("#table").empty();
+    let divs = [];
+    let nameDivs = [];
+    for (let i = 0; i <= MAX_RANK; i++) {
+        let div = $(`<div class="row"></div>`);
+        div.append(`<div class="crNumber">${i}</div>`);
+        let nameDiv = $(`<div class="crNames" cr-id="${i}"></div>`);
+        div.append(nameDiv);
+        divs.push(div);
+        nameDivs.push(nameDiv);
+    }
+    let maxRank = 0;
+    for (let i = 0; i < data.length; i++) {
+        let user = data[i];
+        console.log(user);
+        let minRank = 1000;
+        for (let j = minId-1; j <= maxId-1; j++) {
+            if (user.cr[j] < minRank) {
+                minRank = user.cr[j];
+            }
+        }
+        console.log(minRank);
+        if (minRank > maxRank) {
+            maxRank = minRank;
+        }
+        nameDivs[minRank].append(`<span>${user.name}</span>`);
+    }
+    for (let i = 0; i <= MAX_RANK; i++) {
+        if (i <= maxRank) {
+            $("#table").prepend(divs[i]);
+        }
+    }
 }
 
 function sleep(ms) {
