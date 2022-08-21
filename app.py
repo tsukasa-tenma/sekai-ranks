@@ -3,8 +3,6 @@ from pymongo import MongoClient
 import json
 import os
 
-awake = False
-
 mongo_uri = os.environ.get("MONGODB_URI");
 db_client = MongoClient(mongo_uri)
 db = db_client["sekai-ranks"]
@@ -13,13 +11,8 @@ app = Flask(__name__, static_url_path='/static')
 
 @app.route("/")
 def index():
-    global awake
-    if awake:
-        users = get_users()
-        return render_template('index.html', data=users)
-    else:
-        awake = True
-        return "Waking up! Give me a second and then refresh!"
+    users = get_users()
+    return render_template('index.html', data=users)
 
 def get_all(collection):
     arr = []
