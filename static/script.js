@@ -110,7 +110,7 @@ function makeUnitDiv(id) {
     }
     for (let i = minChar; i < maxChar; i++) {
         let charButton = $(`<div class="charButton headerButton" char-id="${i}"></div>`);
-        charButton.css("background-image", `url("/https://tsukasa-tenma.github.io/sekai-ranks/static/img/char_${i}.png")`);
+        charButton.css("background-image", `url("https://tsukasa-tenma.github.io/sekai-ranks/static/img/char_${i}.png")`);
         unitDiv.append(charButton);
     }
     return unitDiv;
