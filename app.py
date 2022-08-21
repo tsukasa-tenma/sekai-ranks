@@ -17,9 +17,10 @@ def index():
 def get_all(collection):
     arr = []
     for item in db[collection].find({}):
-        item.pop("_id")
-        if collection == "players":
-            item["id"] = str(item["id"])
+        to_remove = ["_id", "id", "sk", "sh"]
+        for key in to_remove:
+            if key in item:
+                item.pop(key)
         arr.append(item)
     return arr
 
