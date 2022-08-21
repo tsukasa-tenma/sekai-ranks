@@ -1,16 +1,16 @@
 @font-face {
   font-family: "Sekai";
-  src: url(font/font.ttf);
+  src: url(https://tsukasa-tenma.github.io/sekai-ranks/static/font/font.ttf);
 }
 
 @font-face {
   font-family: "SekaiBold";
-  src: url(font/font2.ttf);
+  src: url(https://tsukasa-tenma.github.io/sekai-ranks/static/font/font2.ttf);
 }
 
 
 body {
-    background-image: url(img/tile_bg.png);
+    background-image: url(https://tsukasa-tenma.github.io/sekai-ranks/static/img/tile_bg.png);
     background-repeat: repeat;
     margin: 0;
     padding: 0;
@@ -76,7 +76,6 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url(img/unit_1.png);
     margin-left: 2px;
     margin-right: 2px;
     border-radius: 5px;
@@ -88,7 +87,6 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url(img/unit_1.png);
     margin-left: 2px;
     margin-right: 2px;
 }
@@ -102,7 +100,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url(img/dd.gif);
+    background-image: url(https://tsukasa-tenma.github.io/sekai-ranks/static/img/dd.gif);
 }
 
 .headerButton {

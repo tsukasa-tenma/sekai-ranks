@@ -101,7 +101,7 @@ function makeHeader() {
 function makeUnitDiv(id) {
     let unitDiv = $(`<div class="unitDiv"></div>`);
     let unitButton = $(`<div class="unitButton headerButton" unit-id="${id}"></div>`);
-    unitButton.css("background-image", `url("/static/img/unit_${id}.png")`);
+    unitButton.css("background-image", `url("https://tsukasa-tenma.github.io/sekai-ranks/static/img/unit_${id}.png")`);
     unitDiv.append(unitButton);
     let minChar = 1 + 4 * (id - 1);
     let maxChar = minChar + 4;
@@ -110,7 +110,7 @@ function makeUnitDiv(id) {
     }
     for (let i = minChar; i < maxChar; i++) {
         let charButton = $(`<div class="charButton headerButton" char-id="${i}"></div>`);
-        charButton.css("background-image", `url("/static/img/char_${i}.png")`);
+        charButton.css("background-image", `url("/https://tsukasa-tenma.github.io/sekai-ranks/static/img/char_${i}.png")`);
         unitDiv.append(charButton);
     }
     return unitDiv;
@@ -146,7 +146,7 @@ async function setDisplay(displayType, displayId) {
         } else {
             $("#nameEN").text("");
         }
-        $("#characterImage").css("background-image", `url(/static/img/chr_trim_${displayId}.png)`);
+        $("#characterImage").css("background-image", `url(https://tsukasa-tenma.github.io/sekai-ranks/static/img/chr_trim_${displayId}.png)`);
         $("#characterImage").css("background-position", "bottom center");
         $("#characterImage").css("width", "100%");
         $("#characterName").show();
@@ -154,7 +154,7 @@ async function setDisplay(displayType, displayId) {
     } else {
         $("#characterName").hide();
         if (displayType == "unit") {
-            $("#characterImage").css("background-image", `url(/static/img/unit_${displayId}.png)`);
+            $("#characterImage").css("background-image", `url(https://tsukasa-tenma.github.io/sekai-ranks/static/img/unit_${displayId}.png)`);
             $("#characterImage").css("background-position", "center center");
             $("#characterImage").css("width", "75%");
             if (displayId < 6) {
@@ -163,7 +163,7 @@ async function setDisplay(displayType, displayId) {
                 setLeaderboard(21, 26);
             }
         } else if (displayType == "dd") {
-            $("#characterImage").css("background-image", `url(/static/img/dd.gif)`);
+            $("#characterImage").css("background-image", `url(https://tsukasa-tenma.github.io/sekai-ranks/static/img/dd.gif)`);
             $("#characterImage").css("background-position", "center center");
             $("#characterImage").css("width", "40%");
             setLeaderboard(1, 26);
