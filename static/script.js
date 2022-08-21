@@ -198,7 +198,7 @@ function setLeaderboard(minId, maxId) {
         nameDivs[minRank].append(`<span>${user.name}</span>`);
     }
     for (let i = 0; i <= MAX_RANK; i++) {
-        if (i <= maxRank) {
+        if (i <= maxRank && i > 0) {
             $("#table").prepend(divs[i]);
         }
     }
