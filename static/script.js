@@ -195,7 +195,9 @@ function setLeaderboard(minId, maxId) {
         if (minRank > maxRank) {
             maxRank = minRank;
         }
-        nameDivs[minRank].append(`<span>${user.name}</span>`);
+        let span = $(`<span></span>`);
+        span.text(user.name);
+        nameDivs[minRank].append(span);
     }
     for (let i = 0; i <= MAX_RANK; i++) {
         if (i <= maxRank && i > 0) {
