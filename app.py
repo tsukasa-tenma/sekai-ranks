@@ -13,11 +13,12 @@ app = Flask(__name__, static_url_path='/static')
 
 @app.route("/")
 def index():
+    global awake
     if awake:
         users = get_users()
         return render_template('index.html', data=users)
     else:
-        global awake = True
+        awake = True
         return "Waking up! Give me a second and then refresh!"
 
 def get_all(collection):
