@@ -15,8 +15,8 @@ app = Flask(__name__, static_url_path='/static')
 
 @app.route("/")
 def index():
-    # users = get_users()
-    users = []
+    users = get_users()
+    # users = []
     if awake:
         return render_template('index.html', data=users)
     else:
