@@ -9,17 +9,15 @@ mongo_uri = os.environ.get("MONGODB_URI");
 db_client = MongoClient(mongo_uri)
 db = db_client["sekai-ranks"]
 
-awake = True
-
 app = Flask(__name__, static_url_path='/static')
 
 @app.route("/")
 def index():
-    users = get_users()
-    # users = []
     if awake:
+        users = get_users()
         return render_template('index.html', data=users)
     else:
+        global awake = True
         return "Waking up! Give me a second and then refresh!"
 
 def get_all(collection):
