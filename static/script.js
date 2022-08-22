@@ -175,6 +175,7 @@ function setLeaderboard(minId, maxId) {
     $("#table").empty();
     let divs = [];
     let nameDivs = [];
+    let hasUser = [];
     for (let i = 0; i <= MAX_RANK; i++) {
         let div = $(`<div class="row"></div>`);
         div.append(`<div class="crNumber">${i}</div>`);
@@ -182,6 +183,7 @@ function setLeaderboard(minId, maxId) {
         div.append(nameDiv);
         divs.push(div);
         nameDivs.push(nameDiv);
+        hasUser.push(false);
     }
     let maxRank = 0;
     for (let i = 0; i < data.length; i++) {
@@ -198,8 +200,12 @@ function setLeaderboard(minId, maxId) {
         let span = $(`<span></span>`);
         span.text(user.name);
         nameDivs[minRank].append(span);
+        hasUser[minRank] = true;
     }
     for (let i = 0; i <= MAX_RANK; i++) {
+        if (!hasUser[i]) {
+            divs[i].find(".crNumber").text("");
+        }
         if (i <= maxRank && i > 0) {
             $("#table").prepend(divs[i]);
         }
