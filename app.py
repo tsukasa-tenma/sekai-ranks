@@ -20,6 +20,7 @@ def index():
 # Basic route for CAP (chart constant tier list)
 @app.route("/cap")
 def index_cap():
+    print("Get constants!")
     constants = get_constants()
     return render_template('cap.html', data=constants)
 
@@ -31,8 +32,10 @@ def index_cap_edit():
     print(args)
     # Ensure the user and key were passed in
     if not "user" in args:
+        print("No user, redirect")
         return redirect(url_for('index_cap'))
     if not "key" in args:
+        print("No key, redirect")
         return redirect(url_for('index_cap'))
     user_id = args.get("user")
     print(user_id)
@@ -40,9 +43,11 @@ def index_cap_edit():
     matching_key = db["keys"].find_one({"user": user_id, "key": args.get("key"), "keytype": "open"})
     print(matching_key)
     if matching_key is None:
+        print("No matching key, redirect")
         return redirect(url_for('index_cap'))
     # Make sure the key hasn't expired yet
     if matching_key["expires"] < time.time():
+        print("Expired matching key, redirect")
         return redirect(url_for('index_cap'))
     # User has been authenticated. Make a new key and send it to the user
     new_key = str(secrets.randbelow(10 ** 16))
