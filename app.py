@@ -59,6 +59,7 @@ def index_cap_edit():
     # Send them the key and their user ratings
     user_data = {"user": str(user_id), "key": new_key, "ratings": get_user_ratings(user_id), "edit": True}
     user_data_str = json.dumps(user_data)
+    print("User data string!!")
     print(user_data_str)
     return render_template('cap.html', data=user_data_str)
 
