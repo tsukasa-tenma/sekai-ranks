@@ -58,7 +58,7 @@ def index_cap_edit():
     user_ratings = get_user_ratings(user_id)
     print(user_ratings)
     # Clear existing keys for that user
-    db["keys"].delete_many({"user": str(user_id)})
+    # db["keys"].delete_many({"user": str(user_id)})
     # Make them a new key
     db["keys"].insert_one({"user": str(user_id), "key": new_key, "keytype": "edit", "expires": expires_at})
     # Send them the key and their user ratings
