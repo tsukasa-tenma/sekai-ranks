@@ -20,6 +20,7 @@ $(async function () {
     userData = data;
     showSongList(26, data.edit);
     updateEdits();
+    console.log(data);
 });
 
 function makeHeader() {
