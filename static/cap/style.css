@@ -1,0 +1,386 @@
+@font-face {
+    font-family: "Sekai";
+    src: url(https://tsukasa-tenma.github.io/sekai-ranks/static/font/font.ttf);
+}
+
+@font-face {
+    font-family: "SekaiBold";
+    src: url(https://tsukasa-tenma.github.io/sekai-ranks/static/font/font2.ttf);
+}
+
+.gu-mirror {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    opacity: 0.8;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+}
+
+.gu-hide {
+    display: none !important;
+}
+
+.gu-unselectable {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+.gu-transit {
+    opacity: 0.2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+    filter: alpha(opacity=20);
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: url(https://tsukasa-tenma.github.io/sekai-ranks/static/img/tile_bg.png);
+    background-repeat: repeat;
+    margin: 0;
+    padding: 0;
+    animation: bgSlide 10s infinite linear normal forwards;
+    user-select: none;
+    overflow: hidden;
+}
+
+#data {
+    display: none;
+}
+
+@keyframes bgSlide {
+    0% {
+        background-position: 0px 0px;
+    }
+
+    100% {
+        background-position: 152px 0px;
+    }
+}
+
+.gradient {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.1951374299719888) 100%);
+    z-index: -1;
+}
+
+#contents {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    overflow: hidden;
+}
+
+#header {
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.unitDiv {
+    display: flex;
+    flex-flow: row;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.unitButton {
+    width: 130px;
+    height: 50px;
+    background-color: rgb(201, 247, 239);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 5px;
+}
+
+.charButton {
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.ddButton {
+    width: 50px;
+    height: 50px;
+    margin-left: 22px;
+    margin-right: 22px;
+    margin-top: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(https://tsukasa-tenma.github.io/sekai-ranks/static/img/dd.gif);
+}
+
+.headerButton {
+    cursor: pointer;
+}
+
+.headerButton:hover {
+    transform: scale(1.2);
+}
+
+#main {
+    display: flex;
+    flex-flow: row;
+    flex: 1;
+    overflow: hidden;
+}
+
+#character {
+    width: 40%;
+    display: flex;
+    flex-flow: column;
+}
+
+#characterName {
+    font-size: 48px;
+    background-color: white;
+    text-align: center;
+    border-radius: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: #5CC9BB;
+}
+
+#nameJP {
+    font-size: 48px;
+    line-height: 60px;
+    font-family: "Sekai";
+}
+
+#nameEN {
+    font-size: 24px;
+    line-height: 30px;
+    font-family: "SekaiBold";
+    opacity: .5;
+    text-transform: uppercase;
+}
+
+#characterImage {
+    flex: 1;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: drop-shadow(5px 5px 10px #000);
+    margin: auto;
+}
+
+.characterIn {
+    animation: characterIn 0.15s linear normal forwards;
+}
+
+@keyframes characterIn {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+#table {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    overflow-y: scroll;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.row {
+    background-color: white;
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 4px;
+    border-radius: 20px;
+}
+
+.crNumber {
+    font-family: "SekaiBold";
+    font-size: 48px;
+    line-height: 60px;
+    width: 100px;
+    background-color: #5CC9BB;
+    color: white;
+    padding: 5px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.crNumber.wide {
+    width: 150px;
+    min-height: 90px;
+}
+
+.crNumber.gray {
+    background-color: rgb(201, 247, 239);
+}
+
+.crNames {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.crNames span {
+    font-family: "Sekai";
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.diffNum {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: rgb(201, 247, 239);
+    color: #5CC9BB;
+    font-family: "SekaiBold";
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.diffNum:hover {
+    background-color: rgb(201, 247, 239);
+    color: white;
+}
+
+.diffNum.diffSelected {
+    background-color: #5CC9BB;
+    color: white;
+}
+
+#songList {
+    flex: 1;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.ccSongs {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tableGap {
+    height: 50px;
+    width: 50px;
+}
+
+.ccSong {
+    min-width: 60px;
+    height: 70px;
+    background-color: rgb(201, 247, 239);
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.ccSong.edited {
+    box-shadow: 0 0 15px 5px #48abe0;
+}
+
+#editBar {
+    background-color: rgb(201, 247, 239);
+    width: 100%;
+    overflow: hidden;
+}
+
+#editBarSongs {
+    display: flex;
+    overflow-x: scroll;
+    padding: 10px;
+}
+
+#editInfo {
+    font-family: "Sekai";
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    background-color: #5CC9BB;
+    color: rgb(201, 247, 239);
+}
+
+.hspace {
+    flex: 1;
+}
+
+.editBarTitle {
+    font-size: 36px;
+    font-family: "SekaiBold";
+    padding: 10px;
+    line-height: 36px;
+}
+
+.editBarCount {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.editBarSave {
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    color: #5CC9BB;
+    font-family: "SekaiBold";
+    cursor: pointer;
+}
+
+.editBarSave:hover {
+    background-color: rgb(201, 247, 239);
+}
+
+#editHelp {
+    font-family: "Sekai";
+    background-color: #5CC9BB;
+    color: rgb(201, 247, 239);
+    text-align: center;
+    padding: 5px;
+}

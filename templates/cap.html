@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Constant Assignment Project</title>
+    <link rel="stylesheet" href="/static/cap/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/static/cap/script.js"></script>
+</head>
+
+<body>
+    <div class="gradient"></div>
+    <div id="contents">
+        <div id="header"></div>
+        <div id="songList">
+            <div id="songDivs"></div>
+        </div>
+        <div id="editBar">
+            <div id="editInfo">
+                <div class="editBarTitle">EDIT MODE</div>
+                <div class="hspace"></div>
+                <div class="editBarCount">2 edits</div>
+                <div class="editBarSave">Save</div>
+            </div>
+            <div id="editBarSongs" class="canDrag" song-id="-1"></div>
+            <div id="editHelp">
+                Currently editing your personal tier list. Edited but unsaved chart constants will have a blue glow around them. When you're finished, click the Save button.
+            </div>
+        </div>
+    </div>
+    <textarea id="data">{{data}}</textarea>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js'></script>
+</body></html>
