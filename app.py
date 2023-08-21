@@ -28,14 +28,17 @@ def index_cap():
 def index_cap_edit():
     # Must have arguments passed in via a link: user id and key
     args = request.args
+    print(args)
     # Ensure the user and key were passed in
     if not "user" in args:
         return redirect(url_for('index_cap'))
     if not "key" in args:
         return redirect(url_for('index_cap'))
     user_id = args.get("user")
+    print(user_id)
     # Find a matching key of type "open"
     matching_key = db["keys"].find_one({"user": user_id, "key": args.get("key"), "keytype": "open"})
+    print(matching_key)
     if matching_key is None:
         return redirect(url_for('index_cap'))
     # Make sure the key hasn't expired yet
@@ -43,9 +46,12 @@ def index_cap_edit():
         return redirect(url_for('index_cap'))
     # User has been authenticated. Make a new key and send it to the user
     new_key = str(secrets.randbelow(10 ** 16))
+    print(new_key)
     expires_at = time.time() + 36000 # 10 hours
+    print(expires_at)
     # Get the user's ratings
     user_ratings = get_user_ratings(user_id)
+    print(user_ratings)
     # Clear existing keys for that user
     db["keys"].delete_many({"user": str(user_id)})
     # Make them a new key
