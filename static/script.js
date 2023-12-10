@@ -78,7 +78,7 @@ let characterData = [{
     "jp": "KAITO"
 }];
 
-const MAX_RANK = 110;
+const MAX_RANK = 200;
 
 $(function () {
     makeHeader();
